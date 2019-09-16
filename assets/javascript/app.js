@@ -1,4 +1,4 @@
-var number = 30;
+var number = 45;
 
 var intervalId;
 
@@ -20,20 +20,20 @@ var questions = [{
     answerList: ["Tame Impala", "Omar Apollo", "Arctic Monkeys", "Justin Bieber"],
     answer: 3
 },{
-    question: "Rain Drop, Drop Top",
+    question: "Rain Drop, Drop Top..",
     answerList: ["Drake", "Kanye West", "Kodak Black", "Migos"],
     answer: 3
 },{
-    question: "",
-    answerList: ["", "", "", ""],
+    question: "Thank you, Next..",
+    answerList: ["Demi Lovato", "Ariana Grande", "Jorja Smith", "SZN"],
     answer: 1
 },{
-    question: "",
-    answerList: ["", "", "", ""],
+    question: "Yeah we're golden, babygirl we're golden..",
+    answerList: ["Hippie Sabotage", "Metallica", "Mumford & Sons", "Mac Demarco"],
     answer: 0
 },{
-    question: "",
-    answerList: ["", "", "", ""],
+    question: "I've become so numb, I can't feel you there",
+    answerList: ["Fall out Boy", "My Chemical Romance", "21 pilots", "Lincoln Park"],
     answer: 3
 }];
 
@@ -43,7 +43,7 @@ $("#start").on("click", function() {
     $(this).hide();
 
     // Display initial time countdown
-    $("#time").html("<h2>Time Remaining: 30 Seconds</h2>" + "<br>");
+    $("#time").html("<h2>Time Remaining: 45 Seconds</h2>" + "<br>");
 
     // Start timer countdown
     run();
