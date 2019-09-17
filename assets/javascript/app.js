@@ -6,7 +6,7 @@ var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unanswered = 0;
 
-// Questions array
+// array for the questions and answers
 var questions = [{
     question: "Im in love with the moment..",
     answerList: ["Khalid", "Taylor Swift", "Scooby-Doo", "Jojo Siwa"],
@@ -36,20 +36,19 @@ var questions = [{
     answerList: ["Fall out Boy", "My Chemical Romance", "21 pilots", "Lincoln Park"],
     answer: 3
 }];
-
+// the click button 
 $("#start").on("click", function() {
 
-    // Hide Start button
+    // to hide the start button
     $(this).hide();
 
-    // Display initial time countdown
+    // the countdown for time left on trivia
     $("#time").html("<h2>Time Remaining: 45 Seconds</h2>" + "<br>");
 
-    // Start timer countdown
+    // the start timer countdown
     run();
    
-    // Display questions --- I still want to turn this into a reusable piece so that i don't have to repeat this section for each question
-    // Question 1
+    // the will display questions, this will be for question 1 
     $("#question1").html("<h3>" + questions[0].question + "</h3>");
     $("#answer1").html("<input type='radio' name='answer1' value='0'>" + "<label>" + questions[0].answerList[0] + "</label>"
         + "<input type='radio' name='answer1' value='1'>" + "<label>" + questions[0].answerList[1] + "</label>"
@@ -57,7 +56,7 @@ $("#start").on("click", function() {
         + "<input type='radio' name='answer1' value='3'>" + "<label>" + questions[0].answerList[3] + "</label><br><br>"
     );
 
-    // Question 2
+    // this is for question 2
     $("#question2").html("<h3>" + questions[1].question + "</h3>");
     $("#answer2").html("<input type='radio' name='answer2' value='0'>" + "<label>" + questions[1].answerList[0] + "</label>"
         + "<input type='radio' name='answer2' value='1'>" + "<label>" + questions[1].answerList[1] + "</label>"
@@ -65,7 +64,7 @@ $("#start").on("click", function() {
         + "<input type='radio' name='answer2' value='3'>" + "<label>" + questions[1].answerList[3] + "</label><br><br>"
     );
 
-    // Question 3
+    // this is for question 3
     $("#question3").html("<h3>" + questions[2].question + "</h3>");
     $("#answer3").html("<input type='radio' name='answer3' value='0'>" + "<label>" + questions[2].answerList[0] + "</label>"
         + "<input type='radio' name='answer3' value='1'>" + "<label>" + questions[2].answerList[1] + "</label>"
@@ -73,7 +72,7 @@ $("#start").on("click", function() {
         + "<input type='radio' name='answer3' value='3'>" + "<label>" + questions[2].answerList[3] + "</label><br><br>"
     );
 
-    // Question 4
+    // this is for question 4
     $("#question4").html("<h3>" + questions[3].question + "</h3>");
     $("#answer4").html("<input type='radio' name='answer4' value='0'>" + "<label>" + questions[3].answerList[0] + "</label>"
         + "<input type='radio' name='answer4' value='1'>" + "<label>" + questions[3].answerList[1] + "</label>"
@@ -81,21 +80,21 @@ $("#start").on("click", function() {
         + "<input type='radio' name='answer4' value='3'>" + "<label>" + questions[3].answerList[3] + "</label><br><br>"
     );
 
-    // Question 5
+    // this is for question 5
     $("#question5").html("<h3>" + questions[4].question + "</h3>");
     $("#answer5").html("<input type='radio' name='answer5' value='0'>" + "<label>" + questions[4].answerList[0] + "</label>"
         + "<input type='radio' name='answer5' value='1'>" + "<label>" + questions[4].answerList[1] + "</label>"
         + "<input type='radio' name='answer5' value='2'>" + "<label>" + questions[4].answerList[2] + "</label>"
         + "<input type='radio' name='answer5' value='3'>" + "<label>" + questions[4].answerList[3] + "</label><br><br>"
     );
-    // Question 6
+    // this is for question 6
     $("#question6").html("<h3>" + questions[5].question + "</h3>");
     $("#answer6").html("<input type='radio' name='answer6' value='0'>" + "<label>" + questions[5].answerList[0] + "</label>"
         + "<input type='radio' name='answer6' value='1'>" + "<label>" + questions[5].answerList[1] + "</label>"
         + "<input type='radio' name='answer6' value='2'>" + "<label>" + questions[5].answerList[2] + "</label>"
         + "<input type='radio' name='answer6' value='3'>" + "<label>" + questions[5].answerList[3] + "</label><br><br>"
     );
-    // Question 7
+    // this is for question 7
     $("#question7").html("<h3>" + questions[6].question + "</h3>");
     $("#answer7").html("<input type='radio' name='answer7' value='0'>" + "<label>" + questions[6].answerList[0] + "</label>"
         + "<input type='radio' name='answer7' value='1'>" + "<label>" + questions[6].answerList[1] + "</label>"
@@ -103,22 +102,22 @@ $("#start").on("click", function() {
         + "<input type='radio' name='answer7' value='3'>" + "<label>" + questions[6].answerList[3] + "</label><br><br>"
     );
 
-    // Submit button
+    // this my submit button for when i complete answering the questions and have chosen my answers
     $("#submit").html("<button id='done' class='btn'>Done</button>");
 
-    // Click event runs keepingScore() and displayResults() when user clicks Done button
+    // the click event runs keepingScore() and displayResults() when user clicks the done button
     $("#done").on("click", function() {
 
-        // Keeping track of score based on correct, incorrect, and unanswered
+        // this will keep track of score based on correct, incorrect, and unanswered
         keepingScore();
 
-        // Display 
+        // this will display the results
         displayResults();
         
     });
 });
 
-// Timer countdown function
+// this is the timer countdown function
 function run() {
 
     clearInterval(intervalId);
@@ -128,15 +127,15 @@ function run() {
 
 function decrement() {
 
-    //  Decrease number by one.
+    //  this will decrease number by one
     number--;
 
-    //  Show the number in the #time tag
+    //  this will show the number in the #time tag
     $("#time").html("<h2>Time Remaining: " + number + " Seconds</h2>" + "<br>");
 
     if (number === 0) {
 
-        // Run stop function to stop timer countdown
+        // this will stop function to stop timer countdown
         stop();
 
         keepingScore();
@@ -147,11 +146,11 @@ function decrement() {
 
 function stop() {
 
-    //  Clears intervalId
+    //  clears intervalId
     clearInterval(intervalId);
 }
 
-// Function used for displaying results in terms of correct, incorrect, and unanswered --- I want to put all of these tags inside a div so that i can just hide the parent div
+// the function used for displaying results in terms of correct, incorrect, and unanswered. all tags inside div to hide parent div
 function displayResults() {
 
     $("#time").hide();
@@ -177,7 +176,7 @@ function displayResults() {
     $("#unanswered").html("Unanswered: " + unanswered);
 }
 
-// Function keeps score in terms of correct, incorrect, and unanswered --- I still want to make this a reusable piece so that I don't have to repeat it for each question
+// function keeps score in terms of correct, incorrect, and unanswered 
 function keepingScore() {
 
     var userAnswer1 = $("input[name='answer1']:checked").val();
@@ -188,7 +187,7 @@ function keepingScore() {
     var userAnswer6 = $("input[name='answer6']:checked").val();
     var userAnswer7 = $("input[name='answer7']:checked").val();
 
-    // Question 1
+    // for question 1
     if (userAnswer1 === undefined) {
 
         unanswered++;
@@ -202,7 +201,7 @@ function keepingScore() {
         incorrectAnswers++;
     }
 
-    // Question 2
+    // for question 2
     if (userAnswer2 === undefined) {
 
         unanswered++;
@@ -216,7 +215,7 @@ function keepingScore() {
         incorrectAnswers++; 
     }
     // this is tough asf man
-    // Question 3
+    // for question 3
     if (userAnswer3 === undefined) {
 
         unanswered++;
@@ -230,7 +229,7 @@ function keepingScore() {
         incorrectAnswers++;
     }
 
-    // Question 4
+    // for question 4
     if (userAnswer4 === undefined) {
 
         unanswered++;
@@ -244,7 +243,7 @@ function keepingScore() {
         incorrectAnswers++;
     }
 
-    // Question 5
+    // for question 5
     if (userAnswer5 === undefined) {
 
         unanswered++;
@@ -258,7 +257,7 @@ function keepingScore() {
         incorrectAnswers++;
     }
 
-    // Question 6
+    // for question 6
     if (userAnswer6 === undefined) {
 
         unanswered++;
@@ -272,7 +271,7 @@ function keepingScore() {
         incorrectAnswers++;
     }
 
-    // Question 7
+    // for question 7
     if (userAnswer7 === undefined) {
 
         unanswered++;
